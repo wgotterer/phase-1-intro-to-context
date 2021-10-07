@@ -27,11 +27,49 @@ function createTimeOutEvent(bpRecord, timeString){
     return bpRecord
 }
 
-function hoursWorkedOnDate(cRecord, date){
+function hoursWorkedOnDate(cRecord, dateMatch){ 
+    const end = cRecord.timeOutEvents.find(element => {
+       return element.date === dateMatch
+    })
+    
+    
+    const start = cRecord.timeInEvents.find(element => {
+       return element.date === dateMatch
+    })
+    
+    return (end.hour - start.hour) / 100
+      
+    
+    }
 
-    cRecord.timeInEvents.date
+function wagesEarnedOnDate(cRecord, dateMatch){
 
+    return hoursWorkedOnDate(cRecord, dateMatch) * cRecord.payPerHour
+       
 }
 
+function allWagesFor(cRecord){
 
+    let total = 0
+    
+    
+        for(let i = 0; i < cRecord.timeOutEvents.length; i++){ debugger
+    
+            total += wagesEarnedOnDate(cRecord, cRecord.timeOutEvents[i].date) 
+    
+             
+        }
+     return total
+            
+        }
 
+        function calculatePayroll(array){
+
+        }
+
+//         Argument(s)
+// Array of employee records
+// Returns
+// Sum of pay owed to all employees for all dates, as a number
+// Behavior
+// Using wagesEarnedOnDate, accumulate the value of all dates worked by the employee in the record used as context. Amount should be returned as a number.
