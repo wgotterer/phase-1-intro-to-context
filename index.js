@@ -64,6 +64,10 @@ function allWagesFor(cRecord){
         }
 
         function calculatePayroll(array){
+            let totalPay = 0
+            let newArr = array.map(employee => allWagesFor(employee))
+            newArr.forEach(num => totalPay +=num)
+            return totalPay
 
         }
 
