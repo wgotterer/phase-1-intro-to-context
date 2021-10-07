@@ -11,14 +11,27 @@ function createEmployeeRecords(arrOfArrs){
 
 function createTimeInEvent(bpRecord, timeString){
 
-   bpRecord.timeInEvents.push({type:"TimeIn", date:timeString.split(" ")[0], hour:timeString.split(" ")[1] })
+   bpRecord.timeInEvents.push({type:"TimeIn", date:timeString.split(" ")[0], 
+   hour:parseInt(timeString.split(" ")[1])})
 
 
    return bpRecord
 
-///do i need to seperate to line 14 or can I return with push?
 }
 
+function createTimeOutEvent(bpRecord, timeString){
+    bpRecord.timeOutEvents.push({type:"TimeOut", date:timeString.split(" ")[0], 
+    hour:parseInt(timeString.split(" ")[1])})
+ 
+ 
+    return bpRecord
+}
+
+function hoursWorkedOnDate(cRecord, date){
+
+    cRecord.timeInEvents.date
+
+}
 
 
 
